@@ -13,13 +13,9 @@ local Screen = Device.screen
 local ButtonDialog = require("ui/widget/buttondialog")
 local Notification = require("ui/widget/notification")
 
--- local ReaderPaging = ReaderPaging:extend({
---     current_pair_base = 0,
--- })
-
-    -- In dual page mode, this holds the base pair that we are at.
-     -- This is needed to do relative page changes.
-     -- It should also be the same value as current_page
+-- In dual page mode, this holds the base pair that we are at.
+-- This is needed to do relative page changes.
+-- It should also be the same value as current_page
 ReaderPaging.current_pair_base = 0
 
 ReaderPaging.default_reader_settings = ReaderPaging.default_reader_settings or {}
