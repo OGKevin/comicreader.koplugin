@@ -11,7 +11,7 @@ jobs:
             - name: Set up Lua
               uses: leafo/gh-actions-lua@v11
             - name: Set up LuaRocks
-              uses: leafo/gh-actions-luarocks@v4
+              uses: leafo/gh-actions-luarocks@v5
             - name: Install luacheck
               run: luarocks install luacheck
             - name: Run luacheck
