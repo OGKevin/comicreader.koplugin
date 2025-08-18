@@ -1,5 +1,8 @@
 name: Luacheck
-on: [push, pull_request]
+on:
+    pull_request:
+    push:
+        branches: [main]
 jobs:
     luacheck:
         runs-on: ubuntu-latest
