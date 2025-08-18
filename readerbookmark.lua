@@ -50,7 +50,8 @@ function ReaderBookmark:toggleBookmarkForPage(pageno_or_xpointer)
         return "ui", self.view.dogear:getRefreshRegion()
     end)
     -- And ask for a footer refresh, in case we have bookmark_count enabled.
-    -- Assuming the footer is visible, it'll request a refresh regardless, but the EPDC should optimize it out if no content actually changed.
+    -- Assuming the footer is visible, it'll request a refresh regardless,
+    -- but the EPDC should optimize it out if no content actually changed.
     self.view.footer:maybeUpdateFooter()
 end
 

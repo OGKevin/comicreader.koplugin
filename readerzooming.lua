@@ -3,12 +3,10 @@ local ReaderZooming = require("apps/reader/modules/readerzooming")
 local _ = require("gettext")
 local logger = require("logger")
 
-local ReaderZooming = ReaderZooming:extend({
-    -- This flag is used to disable/ignore all zooming events and not update
-    -- any zoom or zoom mode etc.
-    -- The caller is, however, responsible for setting the right settings before disabling.
-    disabled = false,
-})
+-- This flag is used to disable/ignore all zooming events and not update
+-- any zoom or zoom mode etc.
+-- The caller is, however, responsible for setting the right settings before disabling.
+ReaderZooming.disabled = false
 
 -- Update the genus/type Configurables given a specific zoom_mode...
 function ReaderZooming:_updateConfigurable(zoom_mode)
@@ -64,7 +62,7 @@ function ReaderZooming:onToggleFreeZoom(arg, ges)
     return ReaderZoomingOnToggleFreeZoomOrig(self, arg, ges)
 end
 
-local ReaderZoomingOnZoom = ReaderZooming.onZoom
+local ReaderZoomingOnZoomOrig = ReaderZooming.onZoom
 
 function ReaderZooming:onZoom(direction)
     logger.dbg("ComicReaderZooming:onZoom", direction, "enabled", not self.disabled)
@@ -73,7 +71,7 @@ function ReaderZooming:onZoom(direction)
         return
     end
 
-    return ReaderZoomingOnPinchOrig(self, direction)
+    return ReaderZoomingOnZoomOrig(self, direction)
 end
 
 local ReaderZoomingOnDefineZoomOrig = ReaderZooming.onDefineZoom

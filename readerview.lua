@@ -136,7 +136,8 @@ function ReaderView:paintTo(bb, x, y)
         end
     else
         -- Whereas for CRe,
-        -- If we're attempting to show a large enough amount of image data, request dithering (without triggering another repaint ;)).
+        -- If we're attempting to show a large enough amount of image data,
+        -- request dithering (without triggering another repaint ;)).
         local img_count, img_coverage = self.document:getDrawnImagesStatistics()
         -- We also want to deal with paging *away* from image content, which would have adverse effect on ghosting.
         local coverage_diff = math.abs(img_coverage - self.img_coverage)
@@ -433,7 +434,8 @@ function ReaderView:recalculate()
     logger.dbg("ComicReaderView:recalculate visible area", self.visible_area, self.dimen)
 
     -- Flag a repaint so self:paintTo will be called
-    -- NOTE: This is also unfortunately called during panning, essentially making sure we'll never be using "fast" for pans ;).
+    -- NOTE: This is also unfortunately called during panning,
+    -- essentially making sure we'll never be using "fast" for pans ;).
     UIManager:setDirty(self.dialog, self.currently_scrolling and "fast" or "partial")
 end
 
