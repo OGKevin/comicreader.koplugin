@@ -17,4 +17,3 @@ if last_migration_date < migration_date then
 
     G_reader_settings:saveSetting("last_migration_date", migration_date)
 end
-

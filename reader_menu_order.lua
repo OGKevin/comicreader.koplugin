@@ -15,11 +15,13 @@ order.typeset = {
     "speed_reading_module_perception_expander",
     "----------------------------",
     "highlight_options",
-    "selection_text", -- if Device:hasDPad()
+    -- if Device:hasDPad()
+    "selection_text",
     "panel_zoom_options",
     "dual_page_options",
     "djvu_render_mode",
-    "start_content_selection", -- if Device:hasDPad(), put this as last one so it is easy to select with "press" and "up" keys
+    -- if Device:hasDPad(), put this as last one so it is easy to select with "press" and "up" keys
+    "start_content_selection",
 }
 
 return order

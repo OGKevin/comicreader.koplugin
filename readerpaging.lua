@@ -83,7 +83,8 @@ end
 -- If someone is not reading a Paging document and tries to edit profiles or anything
 -- that triggers the actions menu, a nil panic will happen as the actions that would be
 -- in this function never got registered.
-function ReaderPaging:onDispatcherRegisterActions() end
+-- luacheck: ignore self
+function ReaderPaging:onDispatcherRegisterActions(self) end
 
 function ReaderPaging:addToMainMenu(menu_items)
     if self.ui.paging then
@@ -130,6 +131,7 @@ function ReaderPaging:genDualPagingMenu()
                 return self:isDualPageEnabled()
             end,
             help_text = _(
+                -- luacheck: no max line length
                 [[When using Dual Page Mode, and the first page of the document should be shown on its owm, toggle this on.]]
             ),
         },
@@ -146,6 +148,7 @@ function ReaderPaging:genDualPagingMenu()
             end,
             separator = true,
             help_text = _(
+                -- luacheck: no max line length
                 [[When using Dual Page Mode, and the second page needs to be rendered on the left and the first page on the right (RTL), enable this option.]]
             ),
         },
@@ -708,8 +711,10 @@ function ReaderPaging:onGotoPageRel(diff)
             goto_end(x)
         elseif new_page > 0 then
             -- Be sure that the new and old view areas are reset so that no value is carried over to next page.
-            -- Without this, we would have panned_y = new_va.y - old_va.y > 0, and panned_y will be added to the next page's y direction.
-            -- This occurs when the current page has a y > 0 position (for example, a cropped page) and can fit the whole page height,
+            -- Without this, we would have panned_y = new_va.y - old_va.y > 0,
+            -- and panned_y will be added to the next page's y direction.
+            -- This occurs when the current page has a y > 0 position
+            -- (for example, a cropped page) and can fit the whole page height,
             -- while the next page needs scrolling in the height.
             self:_gotoPage(new_page)
             new_va = self.visible_area:copy()
@@ -767,7 +772,8 @@ function ReaderPaging:onGotoPageRel(diff)
         if self.current_page ~= old_page then
             self.view.dim_area:clear()
         else
-            -- We're post PanningUpdate, recompute via self.visible_area instead of new_va for accuracy, it'll have been updated via ViewRecalculate
+            -- We're post PanningUpdate, recompute via self.visible_area instead of new_va for accuracy,
+            -- it'll have been updated via ViewRecalculate
             panned_x, panned_y = math.floor(self.visible_area.x - old_va.x), math.floor(self.visible_area.y - old_va.y)
 
             self.view.dim_area.h = self.visible_area.h - math.abs(panned_y)

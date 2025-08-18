@@ -51,6 +51,7 @@ end
 
 -- Insert page_mode option into the "pageview" tab
 do
+    -- luacheck: ignore __
     for __, tab in ipairs(KoptOptions) do
         if tab.icon == "appbar.pageview" then
             local opts = tab.options
@@ -63,6 +64,7 @@ do
                 default_value = 1,
                 event = "SetPageMode",
                 args = { 1, 2 },
+                -- luacheck: ignore document
                 enabled_func = function(configurable, document)
                     return optionsutil.enableIfEquals(configurable, "page_scroll", 0)
                         and Screen:getScreenMode() == "landscape"

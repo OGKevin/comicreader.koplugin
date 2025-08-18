@@ -17,7 +17,8 @@ local ComicReader = WidgetContainer:extend({
     is_doc_only = true,
 })
 
-function ComicReader:onDispatcherRegisterActions()
+-- luacheck: ignore self
+function ComicReader:onDispatcherRegisterActions(self)
     Dispatcher:registerAction("paging_set_auto_enable_dual_page_mode", {
         category = "string",
         event = "SetAutoEnableDualPageMode",
