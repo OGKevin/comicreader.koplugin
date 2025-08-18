@@ -11,12 +11,12 @@ local VerticalSpan = require("ui/widget/verticalspan")
 local Screen = Device.screen
 local logger = require("logger")
 
-    -- These constants are used to instruct ReaderDogear on which corner to paint the dogear
-    -- This is mainly used in Dual Page mode
-    -- Default is right top corner
- ReaderDogear.SIDE_LEFT = 1
-  ReaderDogear.SIDE_RIGHT = 2
-  ReaderDogear.SIDE_BOTH = 3
+-- These constants are used to instruct ReaderDogear on which corner to paint the dogear
+-- This is mainly used in Dual Page mode
+-- Default is right top corner
+ReaderDogear.SIDE_LEFT = 1
+ReaderDogear.SIDE_RIGHT = 2
+ReaderDogear.SIDE_BOTH = 3
 
 function ReaderDogear:init()
     -- This image could be scaled for DPI (with scale_for_dpi=true, scale_factor=0.7),
