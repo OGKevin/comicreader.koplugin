@@ -4,3 +4,5 @@ rules:
     present: false
   truthy:
     ignore: ".github/workflows/"
+  line-length:
+    ignore: ".github/workflows/"
