@@ -1,4 +1,4 @@
-local ReaderPaging = require("readerpaging")
+local ReaderPaging = require("src/readerpaging")
 local logger = require("logger")
 
 local migration_date = 20250818

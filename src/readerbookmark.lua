@@ -1,7 +1,7 @@
 local ReaderBookmark = require("apps/reader/modules/readerbookmark")
 
 local Event = require("ui/event")
-local ReaderDogear = require("readerdogear")
+local ReaderDogear = require("src/readerdogear")
 local UIManager = require("ui/uimanager")
 local _ = require("gettext")
 local logger = require("logger")
