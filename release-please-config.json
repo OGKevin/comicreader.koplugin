@@ -1,7 +1,7 @@
 {
     "bump-minor-pre-major": true,
     "bump-patch-for-minor-pre-major": true,
-    "prerelease": true,
+    "prerelease": false,
     "prerelease-type": "beta",
     "release-type": "simple",
     "packages": {
