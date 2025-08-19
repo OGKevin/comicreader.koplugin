@@ -24,10 +24,10 @@ jobs:
                   mkdir -p comicreader.koplugin
                   cp -r src comicreader.koplugin/src
                   cp main.lua _meta.lua comicreader.koplugin/
-                  zip -r comicreader.koplugin.zip comicreader.koplugin
+                  cp -r extra-plugins/statistics.koplugin .
+                  zip -r comicreader.koplugin.zip comicreader.koplugin statistics.koplugin -i '*.lua'
             - name: Upload Release Artifact
               if: ${{ steps.release.outputs.release_created }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              # yamllint disable-line rule:line-length
               run: gh release upload ${{ steps.release.outputs.tag_name }} comicreader.koplugin

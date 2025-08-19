@@ -1,0 +1,3 @@
+[submodule "extra-plugins/statistics.koplugin"]
+	path = extra-plugins/statistics.koplugin
+	url = https://github.com/OGKevin/statistics.koplugin.git
