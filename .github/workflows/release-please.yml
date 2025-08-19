@@ -23,7 +23,7 @@ jobs:
               run: |
                   mkdir -p comicreader.koplugin
                   cp -r src comicreader.koplugin/src
-                  cp main.lua _meta.lua comicreader.koplugin/
+                  cp version.txt CHANGELOG.md README.md main.lua _meta.lua comicreader.koplugin/
                   cp -r extra-plugins/statistics.koplugin .
                   zip -r comicreader.koplugin.zip comicreader.koplugin statistics.koplugin -i '*.lua'
             - name: Upload Release Artifact
