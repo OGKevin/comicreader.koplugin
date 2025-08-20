@@ -36,5 +36,5 @@ then modified to display two pages at once.
 4. When opening a single-page document, you’ll see a new toggle option:
 
 <div align="center">
-   <img src="./docs/statis/screenshots/menu-toggle.png" width="500"/>
+   <img src="./docs/static/screenshots/menu-toggle.png" width="500"/>
 </div>
