@@ -17,7 +17,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
       - name: Install Prettier
         run: npm install prettier
       - name: Run Prettier check (fail if not formatted)
