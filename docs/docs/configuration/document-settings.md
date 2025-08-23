@@ -33,9 +33,9 @@ Some documents start with a cover page that should be shown on its own.
 
 - Enable **First Page as Cover** if this applies to your document.
 - If not enabled, pages will shift by one, resulting in something like:
-`cover|page1` ` page2|page3`
+  `cover|page1` ` page2|page3`
 - Enabling it will show the cover separately:
-`cover page1|page2`
+  `cover page1|page2`
 
 Use this setting to match the layout you prefer.
 
@@ -45,4 +45,3 @@ Use this setting to match the layout you prefer.
 
 Turn this on to have **dual page mode** automatically activate when your device is in **landscape orientation**.  
 This makes reading wider documents effortless without manual toggling.
-
