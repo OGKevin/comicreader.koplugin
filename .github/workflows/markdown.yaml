@@ -1,0 +1,47 @@
+name: Markdown
+on:
+  pull_request:
+    branches:
+      - main
+    # types:
+    #   - labeled
+    #   - opened
+    #   - synchronize
+    #   - reopened
+jobs:
+  prettier-check:
+    runs-on: ubuntu-latest
+    outputs:
+      pr_labels: ${{ steps.get_labels.outputs.labels }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+      - name: Install Prettier
+        run: npm install prettier
+      - name: Run Prettier check (fail if not formatted)
+        run: npx prettier --check "**/*.md"
+  # prettier-fix:
+  #   runs-on: ubuntu-latest
+  #   if: contains( github.event.pull_request.labels.*.name, 'actions/auto-format')
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v3
+  #     - name: Install Prettier
+  #       run: npm install prettier
+  #     - name: Run Prettier write (fix files)
+  #       run: npx prettier --write "**/*.md"
+  #     - name: Commit and push if there are changes
+  #       run: |
+  #         git config user.name "github-actions[bot]"
+  #         git config user.email "github-actions[bot]@users.noreply.github.com"
+  #         git add --all
+  #         if ! git diff --staged --quiet; then
+  #           git commit -m "chore: apply prettier formatting to Markdown files"
+  #           git push
+  #         else
+  #           echo "No formatting changes needed"
+  #         fi

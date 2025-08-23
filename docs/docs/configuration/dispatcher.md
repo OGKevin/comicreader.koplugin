@@ -12,11 +12,11 @@ This plugin registers actions that can be executed via the **dispatcher**, also 
 
 The following actions are available:
 
-- Set Auto Enable Dual Page Mode  
-- Toggle Dual Page Mode  
-- Set Page Mode  
-- Set Dual Page Mode: First Page is Cover  
-- Set Dual Page Mode: RTL  
+- Set Auto Enable Dual Page Mode
+- Toggle Dual Page Mode
+- Set Page Mode
+- Set Dual Page Mode: First Page is Cover
+- Set Dual Page Mode: RTL
 
 ![](./img/dispatcher.png)
 
@@ -48,12 +48,11 @@ Here are some ways these actions can enhance your reading experience.
 
 ### Folder With Comics
 
-Suppose you have a folder full of comics. For all these comics, you want:  
+Suppose you have a folder full of comics. For all these comics, you want:
 
-- RTL reading enabled  
-- The first page treated as a cover  
-- Dual Page Mode automatically activated in landscape  
+- RTL reading enabled
+- The first page treated as a cover
+- Dual Page Mode automatically activated in landscape
 
 You can create a **profile** to do all of this using:  
 `Auto-Execute → On Book Opening → If Book File Path Contains`
-
