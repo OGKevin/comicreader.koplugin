@@ -1,15 +1,28 @@
 name: YAML Lint
 on:
-    pull_request:
-    push:
-        branches: [main]
+  pull_request:
+  push:
+    branches: [main]
 jobs:
-    yamllint:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v5
-            - name: Install yamllint
-              run: pip install yamllint
-            - name: Lint YAML files
-              run: yamllint . --format github
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+      - name: Install yamllint
+        run: pip install yamllint
+      - name: Lint YAML files
+        run: yamllint . --format github
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+      - name: Install Prettier
+        run: npm install prettier
+      - name: Run Prettier check yml
+        run: npx prettier --check "**/*.yml"
+      - name: Run Prettier check yaml
+        run: npx prettier --check "**/*.yaml"

@@ -1,16 +1,16 @@
 name: StyLua Formatting
 on:
-    pull_request:
-    push:
-        branches: [main]
+  pull_request:
+  push:
+    branches: [main]
 jobs:
-    stylua:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v5
-            - name: StyLua Check
-              uses: JohnnyMorganz/stylua-action@v4
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  version: latest
-                  args: --check .
+  stylua:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: StyLua Check
+        uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest
+          args: --check .
