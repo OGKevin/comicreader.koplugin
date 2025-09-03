@@ -1,33 +1,33 @@
 on:
-    push:
-        branches:
-            - main
-            # - release/0.x
+  push:
+    branches:
+      - main
+      # - release/0.x
 permissions:
-    contents: write
-    pull-requests: write
+  contents: write
+  pull-requests: write
 name: release-please
 jobs:
-    release-please:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: googleapis/release-please-action@v4
-              with:
-                  target-branch: ${{ github.ref_name }}
-            - uses: actions/checkout@v5
-              if: ${{ steps.release.outputs.release_created }}
-              with:
-                  submodules: true
-            - name: Create ZIP archive
-              if: ${{ steps.release.outputs.release_created }}
-              run: |
-                  mkdir -p comicreader.koplugin
-                  cp -r src comicreader.koplugin/src
-                  cp version.txt CHANGELOG.md README.md main.lua _meta.lua comicreader.koplugin/
-                  cp -r extra-plugins/statistics.koplugin .
-                  zip -r comicreader.koplugin.zip comicreader.koplugin statistics.koplugin -i '*.lua'
-            - name: Upload Release Artifact
-              if: ${{ steps.release.outputs.release_created }}
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: gh release upload ${{ steps.release.outputs.tag_name }} comicreader.koplugin
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          target-branch: ${{ github.ref_name }}
+      - uses: actions/checkout@v5
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          submodules: true
+      - name: Create ZIP archive
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          mkdir -p comicreader.koplugin
+          cp -r src comicreader.koplugin/src
+          cp LICENSE.md version.txt CHANGELOG.md README.md main.lua _meta.lua comicreader.koplugin/
+          cp -r extra-plugins/statistics.koplugin .
+          zip -r comicreader.koplugin.zip comicreader.koplugin statistics.koplugin -i '*.lua'
+      - name: Upload Release Artifact
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload ${{ steps.release.outputs.tag_name }} comicreader.koplugin
